@@ -1,0 +1,232 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddad6ik68m4wq"]
+
+[ext_resource type="Script" path="res://name_generator/ui/ui.gd" id="1_bwv7h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7akct"]
+font_size = 30
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="NameGeneratorUI" type="Control" node_paths=PackedStringArray("name_type_selection", "number_of_names", "first_characters", "leading_characters", "trailing_characters", "delimiter", "final_characters", "new_line_check_box", "first_name_check_box", "last_name_check_box", "preview", "output")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_bwv7h")
+name_type_selection = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NameTypeSelection")
+number_of_names = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/NumberOfNames")
+first_characters = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer8/FirstCharacters")
+leading_characters = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer6/LeadingCharacters")
+trailing_characters = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer5/TrailingCharacters")
+delimiter = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Delimiter")
+final_characters = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer7/FinalCharacters")
+new_line_check_box = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/NewLineCheckBox")
+first_name_check_box = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer4/FirstNameCheckBox")
+last_name_check_box = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer4/LastNameCheckBox")
+preview = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Preview")
+output = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TextEdit")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Name Generator"
+label_settings = SubResource("LabelSettings_7akct")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TypeOfNameHeader" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Type of name:"
+
+[node name="NameTypeSelection" type="ItemList" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+auto_height = true
+
+[node name="ConfigurationsHeader" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Configuration: "
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Preview"
+horizontal_alignment = 1
+
+[node name="Preview" type="TextEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "first_name last_name, first_name last_name"
+editable = false
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Number of names to generate: "
+
+[node name="NumberOfNames" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 1000.0
+value = 1.0
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+text = "First characters: "
+
+[node name="FirstCharacters" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+expand_to_text_length = true
+clear_button_enabled = true
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "Leading characters: "
+
+[node name="LeadingCharacters" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+expand_to_text_length = true
+clear_button_enabled = true
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Trailing characters: "
+
+[node name="TrailingCharacters" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+expand_to_text_length = true
+clear_button_enabled = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Delimiter: "
+
+[node name="Delimiter" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = ", "
+expand_to_text_length = true
+clear_button_enabled = true
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+text = "Final characters: "
+
+[node name="FinalCharacters" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+text = "."
+expand_to_text_length = true
+clear_button_enabled = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "New line after every entry:"
+
+[node name="NewLineCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Include: "
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "First name: "
+
+[node name="FirstNameCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+button_pressed = true
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Last Name: "
+
+[node name="LastNameCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+button_pressed = true
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Generate!"
+
+[node name="StringPreset" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "PRESET: GDSCRIPT STRING"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Output: "
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+wrap_mode = 1
+
+[connection signal="ready" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NameTypeSelection" to="." method="_on_item_list_ready"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer8/FirstCharacters" to="." method="_on_preview_updatable_text_changed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer6/LeadingCharacters" to="." method="_on_preview_updatable_text_changed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer5/TrailingCharacters" to="." method="_on_preview_updatable_text_changed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Delimiter" to="." method="_on_preview_updatable_text_changed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer7/FinalCharacters" to="." method="_on_preview_updatable_text_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/NewLineCheckBox" to="." method="_on_preview_updatable_text_changed"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StringPreset" to="." method="_on_string_preset_button_up"]

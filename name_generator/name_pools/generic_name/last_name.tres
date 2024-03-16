@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="NameData" load_steps=2 format=3 uid="uid://b36k2bpbeqbcl"]
+
+[ext_resource type="Script" path="res://name_generator/name_pools/name_pools.gd" id="1_nmdmm"]
+
+[resource]
+script = ExtResource("1_nmdmm")
+data = Array[String](["Anders", "Bradson", "Charlington", "Davidson", "Edwards"])
